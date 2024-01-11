@@ -1,0 +1,46 @@
+<div class="auth-page">
+  <div class="container">
+    <div class="content">
+      <div class="reg-header">
+        <h1 class="h1">Sign Up</h1>
+        <p>Already have account?
+          <a routerLink="/login">
+            Sign in
+          </a>
+        </p>
+        <p>Is submitting: {{isSubmitting}}</p>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <fieldset>
+          <input type="text" class="form-control" placeholder="Name*" formControlName="name" required autocomplete>
+        </fieldset>
+        <fieldset>
+          <input type="text" (blur)="functionDuplicateUser()" class="form-control" placeholder="Username*"
+            formControlName="username" required autocomplete>
+        </fieldset>
+        <!-- <div *ngIf="exist">
+          <h6>{{duplicateUsername}}</h6>
+        </div> -->
+        <!-- <fieldset>
+          <input type="email" class="form-control" placeholder="Email*" formControlName="email" required autocomplete>
+        </fieldset> -->
+        <fieldset class="inline">
+          <input type="email" class="form-control" placeholder="Email*" formControlName="email" required autocomplete>
+          <input type="password" class="form-control" placeholder="Password*" formControlName="password" required
+            autocomplete>
+          <!-- <input type="password" class="form-control" placeholder="Confirm Password*" formControlName="confirmPassword"
+            required autocomplete> -->
+        </fieldset>
+        @if (invalidPass) {
+        <div class="warning"><i>The passwords does not match!</i></div>
+        }
+        <div class="btn-container">
+          <a routerLink="/login">
+            <button type="button" class="btn btn-warning pull-xs-right">Cancel</button>
+          </a>
+          <button type="submit" class="btn btn-primary pull-xs-right" [disabled]="form.invalid">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

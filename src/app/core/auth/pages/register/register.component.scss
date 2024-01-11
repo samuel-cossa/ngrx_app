@@ -1,0 +1,71 @@
+:host {
+  .container {
+    width: 100%;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    min-height: 80vh;
+
+    .content {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .reg-header {
+        text-align: center;
+        padding-bottom: 30px;
+      }
+
+      .inline {
+        display: flex;
+        gap: 2%;
+      }
+
+      .linked {
+        padding: 1px 10px !important;
+        border-radius: 10px !important;
+      }
+
+      .warning {
+        color: red;
+      }
+
+      a {
+        cursor: pointer;
+        text-decoration: underline !important;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      fieldset {
+        margin: 10px 0;
+        font-size: 18px;
+        background-color: inherit !important;
+      }
+
+      input {
+        background-color: inherit !important;
+        color: inherit !important;
+      }
+
+      .btn-container {
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+
+        button,
+        a {
+          width: 49%;
+
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+}
