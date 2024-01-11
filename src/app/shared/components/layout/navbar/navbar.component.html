@@ -1,0 +1,30 @@
+<header class="header d-flex align-items-center justify-content-between fixed-top" [class.header_change]="header_var">
+  <div class="container">
+
+    <a [routerLink]="['']" class="logo">
+      <i class="bi bi-twitter-x"></i>
+      <h1>app</h1>
+    </a>
+
+    <nav class="navbar {{show}}">
+      <ul>
+        <li [routerLinkActive]="['active']" (click)="toggle_menu()"><a [routerLink]=" ['home']" class="link">Home</a>
+        </li>
+        <li [routerLinkActive]="['active']" (click)="toggle_menu()"><a [routerLink]=" ['features']"
+            class="link">features</a>
+        </li>
+        <li [routerLinkActive]="['active']" (click)="toggle_menu()"><a [routerLink]=" ['counter']"
+            class="link">Counter</a>
+        </li>
+        <li [routerLinkActive]="['active']" (click)="toggle_menu()"><a [routerLink]=" ['posts']" class="link">Posts</a>
+        </li>
+        <li [routerLinkActive]="['active']" class="logout" (click)="toggle_menu()"><a [routerLink]=" ['login']"
+            class="link logout"><b>LOGOUT</b></a>
+        </li>
+        <li><a><app-themes></app-themes></a></li>
+      </ul>
+      <i class="toggle_menu bi {{icon}}" (click)="toggle_menu()"></i>
+    </nav>
+    <i class="toggle_menu bi {{icon}}" (click)="toggle_menu()"></i>
+  </div>
+</header>
