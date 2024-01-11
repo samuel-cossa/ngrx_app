@@ -1,0 +1,19 @@
+<header class="header d-flex align-items-center justify-between fixed-top" [class.header_change]="header_var">
+  <div class="container">
+    <a [routerLink]="['']" class="logo">
+      <!-- <i class="bi bi-twitch"></i> -->
+      <i class="bi bi-twitter-x"></i>
+      <h1>app</h1>
+    </a>
+    <nav class="navbar">
+      <ul>
+        <!-- <li><a routerLink="{{router_path}}">{{router_name}}</a></li> -->
+        <li>
+          <a>
+            <app-themes></app-themes>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

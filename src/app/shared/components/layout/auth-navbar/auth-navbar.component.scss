@@ -1,0 +1,140 @@
+:host {
+
+  /*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+  header {
+    transition: all 0.5s;
+    z-index: 997;
+    right: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background-default);
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header .logo {
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header .logo {
+    font-size: 24px;
+    margin: 0;
+    font-family: var(--font-secondary);
+  }
+
+  a:hover {
+    color: #086e9d !important;
+  }
+
+  header .logo i {
+    font-size: 28px;
+    margin-right: 0;
+    line-height: 0;
+  }
+
+  header .logo h1 {
+    font-size: 28px;
+    font-weight: 300 !important;
+  }
+
+  @media (max-width: 575px) {
+    header .logo h1 {
+      font-size: 24px;
+    }
+
+    header .logo i {
+      font-size: 24px;
+    }
+  }
+
+
+  /*--------------------------------------------------------------
+# Desktop Navigation
+--------------------------------------------------------------*/
+  @media (min-width: 1280px) {
+    .navbar {
+      padding: 0;
+    }
+
+    .navbar ul {
+      margin: 0;
+      padding: 0;
+      display: flex !important;
+      list-style: none;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: max-content;
+    }
+
+    .navbar li {
+      position: relative;
+    }
+
+    .navbar a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 0 5px 15px;
+      font-family: var(--font-secondary) !important;
+      text-transform: uppercase;
+      // letter-spacing: 1px;
+      font-size: 12px;
+      white-space: nowrap;
+      transition: 0.3s;
+    }
+
+    .navbar a i {
+      font-size: 12px;
+      line-height: 0;
+      margin-left: 5px;
+    }
+  }
+
+
+  @media (min-width: 1280px) {
+
+    .toggle_menu {
+      display: none;
+    }
+  }
+
+  ul,
+  li {
+    list-style: none !important;
+  }
+}
+
+.btn {
+  width: 80px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.btn:hover {
+  background-color: red;
+}
+
+.header_change {
+  box-shadow: 0 0 5px var(--color-default) !important;
+  z-index: 1;
+}
+
+.links-containe {
+  display: flex !important;
+  gap: 3px;
+}
