@@ -3,10 +3,11 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AuthRegisterRequestInterface } from '../../types/auth-register-request.interface';
 import { authActions } from '../../store/auth.actions';
 import { AuthStateInterface } from '../../types/auth-state.interface';
-import { selectIsSubmitting } from '../../store/auth.selectors';
+import { selectIsSubmitting } from '../../store/auth.reduces';
+import { AuthService } from '../../auth.service';
+import { RegisterRequestInterface } from '../../types/register-request.interface';
 
 @Component({
   selector: 'app-register',
@@ -24,8 +25,9 @@ export class RegisterComponent implements OnInit {
   validatePassLength: boolean = false;
   duplicateUsername!: string;
   exist: boolean = false;
-  title = inject(Title);
-  store = inject(Store<{ auth: AuthStateInterface }>);
+  private title = inject(Title);
+  private store = inject(Store);
+  private authService = inject(AuthService);
 
   isSubmitting$ = this.store.select(selectIsSubmitting);
   isSubmitting: boolean = false;
@@ -47,12 +49,14 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     console.log('form: ', this.form.getRawValue());
-    const request: AuthRegisterRequestInterface = { user: this.form.getRawValue() };
+    const request: RegisterRequestInterface = { user: this.form.getRawValue() };
     this.store.dispatch(authActions.register({ request }));
     this.form.reset();
     this.store.select(selectIsSubmitting).subscribe((value) => {
       this.isSubmitting = value;
     })
+    this.authService.register(request).
+      subscribe((response) => console.log("Register response: ", response))
   }
 
   functionDuplicateUser() {
